@@ -11,9 +11,9 @@ The evaluation sheets are **considered the gold standards** and are in a user fr
 + Removed grey: clusters for which the automated evaluation is not in the interval [0.8, 0.9[  (grey area). 
 
 ```
-									---------------------------------
-									---- EVALUATION SHEET EXAMPLE  ---
-									---------------------------------
+---------------------------------
+---- EVALUATION SHEET EXAMPLE  ---
+---------------------------------
 									
 
 COUNT  CLUSTER-ID             CLUSTER-SIZE  |MACHINE-EVAL           |MACHINE-MIN-EVAL       |MACHINE-AVG-EVAL       |MACHINE-ALL-EVAL       |HUMAN-EVAL  |HAS-CYCLE   NOT GOOD  CYCLE  |COMMENT                |RESOURCES              
@@ -42,9 +42,9 @@ The ConfMat below is the results for the 642 clusters of size bigger that two th
 + Removed Grey
 
 ```
-									---------------------------------
-									--- CONFUSION MATRIX EXAMPLE  ---
-									---------------------------------
+---------------------------------
+--- CONFUSION MATRIX EXAMPLE  ---
+---------------------------------
 
                    -----------------------------------
                    |       642 GROUND TRUTHS         |
