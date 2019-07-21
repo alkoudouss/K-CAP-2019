@@ -1,17 +1,37 @@
 # CONTEXTUAL ENTITY DISAMBIGUATION (K-CAP-2019)
 
 
-## Evaluation sheets
+## Evaluation Sheets
 
-The evaluation sheets are **considered the gold standards**. They contain the experts validation as well as the machines' ones. The evaluation sheet presents the experts validations and the automatic validations.In this file, the experts annotated a **GOOD** cluster as "**G**" otherwise "**B**". Four evaluation sheets exist: 
+The evaluation sheets are **considered the gold standards** and are in a user friendly test format. They contain the experts validation as well as the machines' ones. The evaluation sheet presents the experts validations and the automatic validations. It is also filled with some additional necessary data to help the expert disambiguate the resource. These include information such as name, husband, wife and kid's names if any, marriage, baptism or burial dates, etc.   In these files, the experts annotated a **GOOD** cluster as "**G**" otherwise "**B**". Four evaluation sheets exist: 
 
 + No cycle: clusters for which no cycle is observed.
 + Cycle: clusters for which a cycle is observed.
 + Reconciled: clusters that have been reconciled based on the presence of one or more cycles.
 + Removed grey: clusters for which the automated evaluation is not in the interval [0.8, 0.9[  (grey area). 
 
+```
+									---------------------------------
+									---- EVALUATION SHEET EXAMPLE  ---
+									---------------------------------
+									
 
-## Confusion matrices
+COUNT  CLUSTER-ID             CLUSTER-SIZE  |MACHINE-EVAL           |MACHINE-MIN-EVAL       |MACHINE-AVG-EVAL       |MACHINE-ALL-EVAL       |HUMAN-EVAL  |HAS-CYCLE   NOT GOOD  CYCLE  |COMMENT                |RESOURCES              
+1      N7395160203604709397   3             |-GOOD [1.0]-           |-GOOD [1.0]-           |-GOOD [1.0]-           |-GOOD [1.0]-           |-G-         |yes                          |                       |RESOURCE                            | DATASET                             | FULL_NAME                           | MARRIAGE                            | HUSBAND                             | WIFE                                | PREVIOUSHUSBAND                     | PREVIOUSWIFE                        | ONES_DEATH                          | FIRST                               | SECOND                              | DEATH                               | BIRTH                               | KIDS_BAPTISM
+                                            |                       |                       |                       |                       |            |            -1-       -X-    |                       |saaId24692118p2                     | Baptism002                          | Amerongen, Jan [van]                |                                     | Amerongen, Jan [van]                | Roijen, Giertje [van]               |                                     |                                     |                                     |                                     |                                     |                                     |                                     | 1624-12-23
+                                            |                       |                       |                       |                       |            |            -1-       -X-    |                       |saaId24725121p2                     | Baptism002                          | Amerongen, Jan [van]                |                                     | Amerongen, Jan [van]                | Roijen, Geertje [van]               |                                     |                                     |                                     |                                     |                                     |                                     |                                     | 1630-06-23
+                                            |                       |                       |                       |                       |            |            -1-       -X-    |                       |555                                 | Ecartico                            | Amerongen, Jan [van]                | 1620-06-13                          | Amerongen, Jan [van]                | Roijen, Geertje [van]               |                                     |                                     |                                     |                                     |                                     |                                     | 1591-01-01                          |
+
+2      N6025972999207757492   2             |-BAD [0.667]-          |-BAD [0.667]-          |-BAD [0.667]-          |-BAD [0.667]-          |-G-         |yes                          |                       |RESOURCE                            | DATASET                             | FULL_NAME                           | MARRIAGE                            | HUSBAND                             | WIFE                                | PREVIOUSHUSBAND                     | PREVIOUSWIFE                        | ONES_DEATH                          | FIRST                               | SECOND                              | DEATH                               | BIRTH                               | KIDS_BAPTISM
+                                            |                       |                       |                       |                       |            |            -1-       -X-    |                       |13377                               | Ecartico                            | Goddeling, Thomas Jacobsz           | 1639-03-05                          | Goddeling, Thomas Jacobsz           | Cornelis, Apolonia                  |                                     |                                     |                                     |                                     |                                     |                                     |                                     |
+                                            |                       |                       |                       |                       |            |            -1-       -X-    |                       |saaId26346222p1                     | Marriage003                         | Goddeling, Thomas Jacobsz           | 1639-03-05                          | Goddeling, Thomas Jacobsz           | Cornelis, Apolonia                  |                                     |                                     |                                     |                                     |                                     |                                     |                                     |
+
+3      N8168393585806295922   10            |-ACCEPTABLE [0.848]-   |-BAD [0.774]-          |-BAD [0.814]-          |-BAD [0.829]-          |-G-         |yes                          |                       |RESOURCE                            | DATASET                             | FULL_NAME                           | MARRIAGE                            | HUSBAND                             | WIFE                                | PREVIOUSHUSBAND                     | PREVIOUSWIFE                        | ONES_DEATH                          | FIRST                               | SECOND                              | DEATH                               | BIRTH                               | KIDS_BAPTISM
+
+```
+
+
+## Confusion Matrices
 
 These files are composed of confusion matrices (ConfMat) describing the performances of the algorithms.
 The ConfMat below is the results for the 642 clusters of size bigger that two that have been reconciled. Here, three files are provided:
@@ -22,6 +42,10 @@ The ConfMat below is the results for the 642 clusters of size bigger that two th
 + Removed Grey
 
 ```
+									---------------------------------
+									--- CONFUSION MATRIX EXAMPLE  ---
+									---------------------------------
+
                    -----------------------------------
                    |       642 GROUND TRUTHS         |
                    -----------------------------------
