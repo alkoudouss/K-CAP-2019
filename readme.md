@@ -12,7 +12,7 @@ The evaluation sheets are **considered the gold standards** and are in a user fr
 
 ```
 ---------------------------------
----- EVALUATION SHEET EXAMPLE  ---
+---- EVALUATION SHEET EXAMPLE ---
 ---------------------------------
 									
 
@@ -87,12 +87,33 @@ EXAMPLE OF WHAT WE GET AS CLUSTER
         'nodes': set(['<http://www.grid.ac/institutes/grid.449957.2>',
                     '<http://risis.eu/eter_2014/resource/NL0028>']),
 
-        'strengths': {('<http://risis.eu/eter_2014/resource/NL0028>',
-                 '<http://www.grid.ac/institutes/grid.449957.2>'): ['1', '1']},
+        'strengths': {key_H57f2f44c3fd2ece: ['1', '1']},
 
         'links': set([('<http://risis.eu/eter_2014/resource/NL0028>',
                  '<http://www.grid.ac/institutes/grid.449957.2>')])
 	}
+```	
+The **key_H57f2f44c3fd2ece** can be obtained with the function `get_key(node_1, node_2)`
+
+```
+for example
+get_key('<http://www.grid.ac/institutes/grid.449957.2>','<http://risis.eu/eter_2014/resource/NL0028>')
+The function is described below
+```
+	
+```
+	def getkey(node_1, node_2):
+
+	    from hashlib import md5
+	    def hashe_it(obj):
+	        h = md5()
+	        h.update(bytes(obj.__str__(), encoding='utf-8'))
+	        return F"H{h.hexdigest()[:15]}"
+	
+	    return "key_{}".format(str(hashe_it((node_1, node_2))).replace("-", "N")) \
+			if node_1 < node_2 \
+			else "key_{}".format(str(hashe_it((node_2, node_1))).replace("-", "N"))
+	
 ```
 
 	
