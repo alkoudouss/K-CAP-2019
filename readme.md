@@ -96,9 +96,8 @@ EXAMPLE OF WHAT WE GET AS CLUSTER
 The **key_H57f2f44c3fd2ece** can be obtained with the function `get_key(node_1, node_2)`
 
 ```
-for example
-get_key('<http://www.grid.ac/institutes/grid.449957.2>','<http://risis.eu/eter_2014/resource/NL0028>')
-The function is described below
+for example: get_key('<http://www.grid.ac/institutes/grid.449957.2>','<http://risis.eu/eter_2014/resource/NL0028>')
+The function is described below.
 ```
 	
 ```
