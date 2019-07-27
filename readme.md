@@ -81,30 +81,22 @@ PREDICT ------------------------------------------------------------------------
 
 
 ```
-EXAMPLE OF WHAT WE GET AS CLUSTER
+EXAMPLE OF WHAT WE GET AS CLUSTER FROM THE SERIALISED PYTHON DICTIONARY
 {
-	'data_store': the datastore used,
-	'serialised': file path of the serialised cluster object,
-	'cluster_id': PH00015f34d7be77f,
-	'properties': a list of dictionary specifying the property to use for a
- 	particular dataset in order to fecth a node's label,
-  	for example: [{'dataset': 'http://goldenagents.org/datasets/Marriage003',
- 		'entity_type': 'http://goldenagents.org/uva/SAA/ontology/Person', 
- 		'property': 'http://goldenagents.org/uva/SAA/ontology/full_name'}] 
-	associations: path to the association file,
-	sub_clusters: path to the reconfiled file,
-  	"cluster data": {
-	    P1832892825: {
-	        'nodes': set(['<http://www.grid.ac/institutes/grid.449957.2>',
-	                    '<http://risis.eu/eter_2014/resource/NL0028>']),
-		
-	        'strengths': {key_H57f2f44c3fd2ece: ['1', '1']},
-		
-	        'links': set([('<http://risis.eu/eter_2014/resource/NL0028>',
-	                 '<http://www.grid.ac/institutes/grid.449957.2>')])} 
-	}
+    P1832892825: 
+    {
+    
+        'nodes': set(['<http://www.grid.ac/institutes/grid.449957.2>',
+                    '<http://risis.eu/eter_2014/resource/NL0028>']),
+	
+        'strengths': {key_H57f2f44c3fd2ece: ['1', '1']},
+	
+        'links': set([('<http://risis.eu/eter_2014/resource/NL0028>',
+                 '<http://www.grid.ac/institutes/grid.449957.2>')])} 
+	},
+	...
 }
-```	
+```
 The **key_H57f2f44c3fd2ece** can be obtained with the function `get_key(node_1, node_2)`
 
 ```
