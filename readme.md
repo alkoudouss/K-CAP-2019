@@ -160,9 +160,9 @@ The function is described below.
 -- GET KEY FUNCTION DEFINITION --
 ---------------------------------
 
+	from hashlib import md5
 	def getkey(node_1, node_2):
 
-	    from hashlib import md5
 	    def hashe_it(obj):
 	        h = md5()
 	        h.update(bytes(obj.__str__(), encoding='utf-8'))
