@@ -30,6 +30,56 @@ COUNT  CLUSTER-ID             CLUSTER-SIZE  |MACHINE-EVAL           |MACHINE-MIN
 
 ```
 
+## Ground-truth
+
+The ground-truth data (```gold-cycle-transferred.csv``` and ```gold-no-cycle-transferred.csv```) are .csv files compiled based on the evaluation sheets. It allows a quick overview on how the judge validated each cluster and split those that are not correct.
+
+**Columns Description:**
+
++ CLUSTER-COUNT	: It tells us how many clusters are generated.
++ STATUS			: The human evaluation of the quality of the cluster. A single wrong node in an identity link cluster triggers an annotation of **B** indicating **BAD** and **G** (**GOOD**) otherwise.
++ CLUSTER-SIZE	: The size of the cluster.
++ DATASET			: The dataset in which the node can be found.
++ RESOURCE-URI	: The local name extract from the resource URI.
++ CLUSTER-ID		: The ID of the cluster.
++ ILN-GROUP		: If an other number except 1 is found, for example 3, it means that the cluster is split into three sub-clusters.
+
+```
+--------------------------------------------------
+-- THIS IS AN EXAMPLE OF THE GOLD STANDARD FILE --
+--------------------------------------------------
+
+CLUSTER-COUNT	STATUS	CLUSTER-SIZE	DATASET	RESOURCE-URI	CLUSTER-ID	ILN-GROUP
+						
+1	B	7	Baptism002	saaId24273101p1	PH19b7294f077ecf0	1
+1	B	7	Baptism002	saaId24444353p1	PH19b7294f077ecf0	2
+1	B	7	Baptism002	saaId24515677p1	PH19b7294f077ecf0	1
+1	B	7	Baptism002	saaId24544852p1	PH19b7294f077ecf0	1
+1	B	7	Baptism002	saaId24547914p1	PH19b7294f077ecf0	1
+1	B	7	Baptism002	saaId24621793p1	PH19b7294f077ecf0	2
+1	B	7	Ecartico	23023	PH19b7294f077ecf0	1
+						
+2	G	4	Baptism002	saaId24509717p2	PH32817db85dd091e	1
+2	G	4	Baptism002	saaId24524508p2	PH32817db85dd091e	1
+2	G	4	Baptism002	saaId24583287p2	PH32817db85dd091e	1
+2	G	4	Ecartico	22569	PH32817db85dd091e	1
+						
+3	G	6	Baptism002	saaId24548746p2	PH2951197d5b19373	1
+3	G	6	Baptism002	saaId24565578p2	PH2951197d5b19373	1
+3	G	6	Baptism002	saaId24584356p2	PH2951197d5b19373	1
+3	G	6	Baptism002	saaId24722679p2	PH2951197d5b19373	1
+3	G	6	Ecartico	6213	PH2951197d5b19373	1
+3	G	6	Marriage003	saaId26386917p1	PH2951197d5b19373	1
+						
+4	G	7	Baptism002	saaId24331962p2	PH04a1c0123f05b6f	1
+4	G	7	Baptism002	saaId24335997p2	PH04a1c0123f05b6f	1
+4	G	7	Baptism002	saaId24454450p2	PH04a1c0123f05b6f	1
+4	G	7	Baptism002	saaId24609060p2	PH04a1c0123f05b6f	1
+4	G	7	Baptism002	saaId24711286p2	PH04a1c0123f05b6f	1
+4	G	7	Ecartico	7900	PH04a1c0123f05b6f	1
+4	G	7	Marriage003	saaId26400712p1	PH04a1c0123f05b6f	1
+```
+
 
 ## Confusion Matrices
 
@@ -81,7 +131,9 @@ PREDICT ------------------------------------------------------------------------
 
 
 ```
-EXAMPLE OF WHAT WE GET AS CLUSTER FROM THE SERIALISED PYTHON DICTIONARY
+-----------------------------------------------------------------------------
+-- EXAMPLE OF WHAT WE GET AS CLUSTER FROM THE SERIALISED PYTHON DICTIONARY --
+-----------------------------------------------------------------------------
 {
     P1832892825: 
     {
@@ -104,6 +156,10 @@ The function is described below.
 ```
 	
 ```
+---------------------------------
+-- GET KEY FUNCTION DEFINITION --
+---------------------------------
+
 	def getkey(node_1, node_2):
 
 	    from hashlib import md5
