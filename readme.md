@@ -85,14 +85,13 @@ EXAMPLE OF WHAT WE GET AS CLUSTER FROM THE SERIALISED PYTHON DICTIONARY
 {
     P1832892825: 
     {
-    
         'nodes': set(['<http://www.grid.ac/institutes/grid.449957.2>',
                     '<http://risis.eu/eter_2014/resource/NL0028>']),
 	
         'strengths': {key_H57f2f44c3fd2ece: ['1', '1']},
 	
         'links': set([('<http://risis.eu/eter_2014/resource/NL0028>',
-                 '<http://www.grid.ac/institutes/grid.449957.2>')])} 
+                 '<http://www.grid.ac/institutes/grid.449957.2>')])}
 	},
 	...
 }
