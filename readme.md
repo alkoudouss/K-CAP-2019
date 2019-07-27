@@ -75,23 +75,35 @@ PREDICT ------------------------------------------------------------------------
 	
 + ILNs: Four files are available. Two files are about the original ILNs (Custers and Root) and two other files are about the reconciled ILNs (Custers-reconciled and Root-reconciled).
 
-	**Root:** The root file is a dictionary where each key is the resource URI and the value is the resource's assigned cluster id.
-	
-	**Clusters:** The clusters file is a python serialised dictionary with the following information: 
+	**Mappings:** The files ```ilns_map.txt.gz``` and ```ilns_reconciled_map.txt.gz``` are python serialised dictionary objects mapping each resource URI to the cluster it belongs too. 
+
+	**Clusters:** The files ```ilns.txt.gz``` and ```ilns_reconciled.txt.gz``` are serialised python dictionary objects modelled as described below.
+
 
 ```
 EXAMPLE OF WHAT WE GET AS CLUSTER
-
-    P1832892825 	
-    {
-        'nodes': set(['<http://www.grid.ac/institutes/grid.449957.2>',
-                    '<http://risis.eu/eter_2014/resource/NL0028>']),
-
-        'strengths': {key_H57f2f44c3fd2ece: ['1', '1']},
-
-        'links': set([('<http://risis.eu/eter_2014/resource/NL0028>',
-                 '<http://www.grid.ac/institutes/grid.449957.2>')])
+{
+	'data_store': the datastore used,
+	'serialised': file path of the serialised cluster object,
+	'cluster_id': PH00015f34d7be77f,
+	'properties': a list of dictionary specifying the property to use for a
+ 	particular dataset in order to fecth a node's label,
+  	for example: [{'dataset': 'http://goldenagents.org/datasets/Marriage003',
+ 		'entity_type': 'http://goldenagents.org/uva/SAA/ontology/Person', 
+ 		'property': 'http://goldenagents.org/uva/SAA/ontology/full_name'}] 
+	associations: path to the association file,
+	sub_clusters: path to the reconfiled file,
+  	"cluster data": {
+	    P1832892825: {
+	        'nodes': set(['<http://www.grid.ac/institutes/grid.449957.2>',
+	                    '<http://risis.eu/eter_2014/resource/NL0028>']),
+		
+	        'strengths': {key_H57f2f44c3fd2ece: ['1', '1']},
+		
+	        'links': set([('<http://risis.eu/eter_2014/resource/NL0028>',
+	                 '<http://www.grid.ac/institutes/grid.449957.2>')])} 
 	}
+}
 ```	
 The **key_H57f2f44c3fd2ece** can be obtained with the function `get_key(node_1, node_2)`
 
